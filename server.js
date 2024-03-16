@@ -8,12 +8,17 @@ import cors from 'cors';
 import categoryRoutes from './routes/categoryRoutes.js'
 import productRoutes from './routes/productRoutes.js'
 import path from'path';
+import {fileURLToPATH} from 'url';
 //configure env
 dotenv.config();
 
 //database config
 connectDB();
 const app=express(); 
+
+//esmodule fix
+const __filename=fileURLToPATH(import.meta.url);
+const __dirname=path.dirname(__filename);
 
 //midddlewares
 app.use(cors())
