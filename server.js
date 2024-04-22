@@ -21,7 +21,12 @@ const __filename=fileURLToPath(import.meta.url);
 const __dirname=path.dirname(__filename);
 
 //midddlewares
-app.use(cors())
+app.use(cors({
+    origin: "https://ecommerce-product-showcase-using-mern-xtca.onrender.com/",
+    headers: ["Content-Type"],
+    credentials: true,
+}));
+
 app.use(express.json())
 app.use(morgan("dev"))
 app.use(express.static(path.join(__dirname,"./client/build")))
